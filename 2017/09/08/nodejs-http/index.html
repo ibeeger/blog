@@ -93,7 +93,7 @@ Object.defineProperty set 避免深">
 <li>res.write(progress);    </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[javascript]</span><br><span class="line"></span><br><span class="line">let allUrlList = []//所有url接口</span><br><span class="line">let allDataObject = &#123;&#125;;</span><br><span class="line">let itemUrl = Object.defineProperty(&#123;&#125;, &quot;num&quot;, &#123;</span><br><span class="line">		set:function(num)&#123;</span><br><span class="line">			fetch(allUrlList[num],&#123;...postJson&#125;,(data)=&gt;&#123;</span><br><span class="line">			res.write(parseInt(num/allUrlList.length));</span><br><span class="line">			allDataObject.merge(data);</span><br><span class="line">			itemUrl.num = num+1;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+<p><img src="http://iassets.oss-cn-beijing.aliyuncs.com/images/result.png" alt="图片"></p>
 <font color="#ff0000">疑问：也希望各位大神能帮忙解惑，同样的等待时间，为什么不断的，res.write(progress)就不会超时了？</font>
 
 
