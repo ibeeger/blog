@@ -201,6 +201,182 @@
 
   
     
+    <h3 class="article-title"><a href="/blog/2015/10/13/tessract-orc/"><span>识别图片文字</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2015/10/13/tessract-orc/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-10-13T14:47:58.000Z">
+          2015-10-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>安装</p>
+<blockquote>
+<p>brew install tesseract        </p>
+</blockquote>
+<p>源代码安装</p>
+<blockquote>
+<p>git clone <a href="https://github.com/tesseract-ocr/tesseract.git" target="_blank" rel="noopener">https://github.com/tesseract-ocr/tesseract.git</a><br>./autogen.sh<br>./configure<br>make<br>make install<br>sudo ldconfig</p>
+</blockquote>
+<p>安装语言包</p>
+<blockquote>
+<p>brew install tesseract –all-languages    </p>
+</blockquote>
+<p>使用</p>
+<blockquote>
+<p>tesseract article.png  text -l chi_sim </p>
+</blockquote>
+<ul>
+<li>article.png 提取文字的图片        </li>
+<li>text 提取后 存放的文件  后缀名 .txt;        </li>
+<li>-l chi_sim  语言 中文</li>
+</ul>
+<p>语言</p>
+<ul>
+<li>afr (Afrikaans) </li>
+<li>amh (Amharic) </li>
+<li>ara (Arabic) </li>
+<li>asm (Assamese) </li>
+<li>aze (Azerbaijani) </li>
+<li>aze_cyrl (Azerbaijani - Cyrilic) </li>
+<li>bel (Belarusian) </li>
+<li>ben (Bengali) </li>
+<li>bod (Tibetan) </li>
+<li>bos (Bosnian) </li>
+<li>bul (Bulgarian) </li>
+<li>cat (Catalan; Valencian) </li>
+<li>ceb (Cebuano) </li>
+<li>ces (Czech) </li>
+<li>chi_sim (Chinese - Simplified) </li>
+<li>chi_tra (Chinese - Traditional) </li>
+<li>chr (Cherokee) </li>
+<li>cym (Welsh) </li>
+<li>dan (Danish) </li>
+<li>dan_frak (Danish - Fraktur) </li>
+<li>deu (German) </li>
+<li>deu_frak (German - Fraktur) </li>
+<li>dzo (Dzongkha) </li>
+<li>ell (Greek, Modern (1453-)) </li>
+<li>eng (English) </li>
+<li>enm (English, Middle (1100-1500)) </li>
+<li>epo (Esperanto) </li>
+<li>equ (Math / equation detection module) </li>
+<li>est (Estonian) </li>
+<li>eus (Basque) </li>
+<li>fas (Persian) </li>
+<li>fin (Finnish) </li>
+<li>fra (French) </li>
+<li>frk (Frankish) </li>
+<li>frm (French, Middle (ca.1400-1600)) </li>
+<li>gle (Irish) </li>
+<li>glg (Galician) </li>
+<li>grc (Greek, Ancient (to 1453)) </li>
+<li>guj (Gujarati) </li>
+<li>hat (Haitian; Haitian Creole) </li>
+<li>heb (Hebrew) </li>
+<li>hin (Hindi) </li>
+<li>hrv (Croatian) </li>
+<li>hun (Hungarian) </li>
+<li>iku (Inuktitut) </li>
+<li>ind (Indonesian) </li>
+<li>isl (Icelandic) </li>
+<li>ita (Italian) </li>
+<li>ita_old (Italian - Old) </li>
+<li>jav (Javanese) </li>
+<li>jpn (Japanese) </li>
+<li>kan (Kannada) </li>
+<li>kat (Georgian) </li>
+<li>kat_old (Georgian - Old) </li>
+<li>kaz (Kazakh) </li>
+<li>khm (Central Khmer) </li>
+<li>kir (Kirghiz; Kyrgyz) </li>
+<li>kor (Korean) </li>
+<li>kur (Kurdish) </li>
+<li>lao (Lao) </li>
+<li>lat (Latin) </li>
+<li>lav (Latvian) </li>
+<li>lit (Lithuanian) </li>
+<li>mal (Malayalam) </li>
+<li>mar (Marathi) </li>
+<li>mkd (Macedonian) </li>
+<li>mlt (Maltese) </li>
+<li>msa (Malay) </li>
+<li>mya (Burmese) </li>
+<li>nep (Nepali) </li>
+<li>nld (Dutch; Flemish) </li>
+<li>nor (Norwegian) </li>
+<li>ori (Oriya) </li>
+<li>osd (Orientation and script detection module) </li>
+<li>pan (Panjabi; Punjabi) </li>
+<li>pol (Polish) </li>
+<li>por (Portuguese) </li>
+<li>pus (Pushto; Pashto) </li>
+<li>ron (Romanian; Moldavian; Moldovan) </li>
+<li>rus (Russian) </li>
+<li>san (Sanskrit) </li>
+<li>sin (Sinhala; Sinhalese) </li>
+<li>slk (Slovak) </li>
+<li>slk_frak (Slovak - Fraktur) </li>
+<li>slv (Slovenian) </li>
+<li>spa (Spanish; Castilian) </li>
+<li>spa_old (Spanish; Castilian - Old) </li>
+<li>sqi (Albanian) </li>
+<li>srp (Serbian) </li>
+<li>srp_latn (Serbian - Latin) </li>
+<li>swa (Swahili) </li>
+<li>swe (Swedish) </li>
+<li>syr (Syriac) </li>
+<li>tam (Tamil) </li>
+<li>tel (Telugu) </li>
+<li>tgk (Tajik) </li>
+<li>tgl (Tagalog) </li>
+<li>tha (Thai) </li>
+<li>tir (Tigrinya) </li>
+<li>tur (Turkish) </li>
+<li>uig (Uighur; Uyghur) </li>
+<li>ukr (Ukrainian) </li>
+<li>urd (Urdu) </li>
+<li>uzb (Uzbek) </li>
+<li>uzb_cyrl (Uzbek - Cyrilic) </li>
+<li>vie (Vietnamese) </li>
+<li>yid (Yiddish)</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/blog/2014/05/11/mongodb/"><span>mongodb</span></a></h3>
     
   
