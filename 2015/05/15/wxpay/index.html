@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>微信支付注意事项 | 风不二 | 会工作&amp;爱生活</title>
+
+  
+  <meta name="author" content="ibeeger">
+  
+
+  
+  <meta name="description" content="####准备工作 
+
+appid 公众号id
+mch_id 商户号 公众号申请微信支付成功后 会有个商户号
+key 密钥 申请成功后会收到邮件 会带着密钥 用于签名
+
+####配置环境：
+
+配置支付目录（开发，生产环境）
+配置支付成功回调地址
+
+####开发
+
+获取prepay_id 首先根据统一下">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="微信支付注意事项"/>
+
+  <meta property="og:site_name" content="风不二"/>
+
+  
+  <meta property="og:image" content="/blog/favicon.ico"/>
+  
+
+  <link href="/blog/favicon.ico" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="风不二" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/blog/">风不二</a>
+    </h1>
+    <p class="site-description">会工作&amp;爱生活</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/blog/">Home</a></li>
+      
+        <li><a href="/blog/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>微信支付注意事项</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2015/05/15/wxpay/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-05-15T13:50:21.000Z">
+          2015-05-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>####准备工作 </p>
+<ul>
+<li>appid 公众号id</li>
+<li>mch_id 商户号 公众号申请微信支付成功后 会有个商户号</li>
+<li>key 密钥 申请成功后会收到邮件 会带着密钥 用于签名</li>
+</ul>
+<p>####配置环境：</p>
+<ul>
+<li>配置支付目录（开发，生产环境）</li>
+<li>配置支付成功回调地址</li>
+</ul>
+<p>####开发</p>
+<ul>
+<li>获取prepay_id 首先根据统一下单接口获取<br>注意：<br>1、区分大小写<br>2、排序<br><pre>let item = {}<br> Object.keys(json).sort().map(function(key) {<pre><code>item[key] = json[key];
+</code></pre> });<br></pre><br>3、拼接 (记得加上 key) 放在最后就行<br><pre>querystring.stringify(json)</pre><br>4、签名 md5 记得转换大写<br><pre>let t = crypto.createHash(“md5”);<br>t.update(url, “utf8”, “hex”);<br>t.digest(“hex”).toUpperCase();<br></pre><br>5、增加sign字段<br>6、请求的时候 记得转换xml </li>
+</ul>
+<ul>
+<li>h5发起支付<br> 签名注意<br> 1、时间戳记得转换成字符串  ios会提示有问题<br> 2、记得加上key</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 ibeeger
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
