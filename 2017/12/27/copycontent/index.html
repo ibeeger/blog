@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【linux】复制文本命令 | 风不二 | 会工作&amp;爱生活</title>
+
+  
+  <meta name="author" content="ibeeger">
+  
+
+  
+  <meta name="description" content="经常在终端下操作的同学，应该很经常用到复制一些文本或者日志，比如下面
+cat file.log | grep “xxxxxxxx” 
+获得文本后复制，如果内容超过一屏，复制起来就比较麻烦，今天从网上搜了下还真有直接复制到剪切板上的。
+具体介绍
+#Windows下使用系统自带的clip命令。
+位于C:">
+  
+
+  
+  
+  <meta name="keywords" content="linux">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="【linux】复制文本命令"/>
+
+  <meta property="og:site_name" content="风不二"/>
+
+  
+  <meta property="og:image" content="/blog/favicon.ico"/>
+  
+
+  <link href="/blog/favicon.ico" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="风不二" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/blog/">风不二</a>
+    </h1>
+    <p class="site-description">会工作&amp;爱生活</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/blog/">Home</a></li>
+      
+        <li><a href="/blog/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>【linux】复制文本命令</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2017/12/27/copycontent/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-12-27T05:49:17.000Z">
+          2017-12-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>经常在终端下操作的同学，应该很经常用到复制一些文本或者日志，<br>比如下面</p>
+<p>cat file.log | grep “xxxxxxxx” </p>
+<p>获得文本后复制，如果内容超过一屏，复制起来就比较麻烦，今天从网上搜了下还真有直接复制到剪切板上的。</p>
+<p>具体介绍</p>
+<p>#Windows下<br>使用系统自带的clip命令。</p>
+<h3 id="位于C-Windows-system32-clip-exe。"><a href="#位于C-Windows-system32-clip-exe。" class="headerlink" title="位于C:\Windows\system32\clip.exe。"></a>位于C:\Windows\system32\clip.exe。</h3><p>示例：</p>
+<blockquote>
+<p>echo Hello | clip </p>
+</blockquote>
+<h3 id="将字符串Hello放入Windows剪贴板"><a href="#将字符串Hello放入Windows剪贴板" class="headerlink" title="将字符串Hello放入Windows剪贴板"></a>将字符串Hello放入Windows剪贴板</h3><blockquote>
+<p>dir | clip</p>
+<h3 id="将dir命令输出（当前目录列表）放入Windows剪贴板"><a href="#将dir命令输出（当前目录列表）放入Windows剪贴板" class="headerlink" title="将dir命令输出（当前目录列表）放入Windows剪贴板"></a>将dir命令输出（当前目录列表）放入Windows剪贴板</h3><p>clip &lt; README.TXT   </p>
+<h3 id="将readme-txt的文本放入Windows剪贴板"><a href="#将readme-txt的文本放入Windows剪贴板" class="headerlink" title="将readme.txt的文本放入Windows剪贴板"></a>将readme.txt的文本放入Windows剪贴板</h3><p>echo | clip </p>
+<h3 id="将一个空行放入Windows剪贴板，即清空Windows剪贴板"><a href="#将一个空行放入Windows剪贴板，即清空Windows剪贴板" class="headerlink" title="将一个空行放入Windows剪贴板，即清空Windows剪贴板"></a>将一个空行放入Windows剪贴板，即清空Windows剪贴板</h3></blockquote>
+<p>#Linux下<br>使用xsel命令。</p>
+<p>示例：</p>
+<blockquote>
+<p>cat README.TXT | xsel<br>cat README.TXT | xsel -b # 如有问题可以试试-b选项<br>xsel &lt; README.TXT </p>
+</blockquote>
+<h3 id="将readme-txt的文本放入剪贴板"><a href="#将readme-txt的文本放入剪贴板" class="headerlink" title="将readme.txt的文本放入剪贴板"></a>将readme.txt的文本放入剪贴板</h3><blockquote>
+<p>xsel -c</p>
+<h3 id="清空剪贴板"><a href="#清空剪贴板" class="headerlink" title="清空剪贴板"></a>清空剪贴板</h3></blockquote>
+<p>#Mac下<br>使用pbcopy命令。 # 对应有个pbpaste命令。</p>
+<p>示例：</p>
+<p>tail file.txt | pbcopy</p>
+<h3 id="将字符串放入剪贴板"><a href="#将字符串放入剪贴板" class="headerlink" title="将字符串放入剪贴板"></a>将字符串放入剪贴板</h3>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/blog/tags/linux/">linux</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 ibeeger
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
