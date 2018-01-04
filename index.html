@@ -45,9 +45,9 @@
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="/blog/">Home</a></li>
+        <li><a href="/blog/">主页</a></li>
       
-        <li><a href="/blog/archives">Archives</a></li>
+        <li><a href="/blog/archives">归档</a></li>
       
     </ul>
   </nav>
@@ -263,6 +263,107 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/blog/tags/node-redis/">node redis</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/blog/2016/06/27/api/"><span>【约定规范】前后端约定规范</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2016/06/27/api/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-27T04:49:17.000Z">
+          2016-06-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>前后端约定</p>
+<p>###和服务端相关：<br>1、字段、含义统一 （字典建立起来，先查字典）</p>
+<p> 举例：  </p>
+<blockquote>
+<p>userId: 用户id<br>workId: 作业id<br>workName: 作业名称<br>exerciseId: </p>
+</blockquote>
+<p>2、路由（params, query可以利用起来）        </p>
+<ul>
+<li>params</li>
+<li>query</li>
+</ul>
+<p>3、数据传输（空值字段）            </p>
+<ul>
+<li>方案1、不参与交互传输</li>
+<li>方案2、参与交互传输、需要定义不同类型的 default  value 的方案</li>
+</ul>
+<p>4、code值定义</p>
+<p>5、数据中只包含用到的字段。()</p>
+<p>###和前端相关：</p>
+<p>1、先定义组件 然后安装到项目使用</p>
+<p>2、组件 props 类型要声明</p>
+<ul>
+<li>array  React.PropTypes.array  //数组</li>
+<li>bool  React.PropTypes.bool.isRequired //布尔值 而且是必须的</li>
+<li>func  React.PropTypes.func //函数</li>
+<li>number  //数字</li>
+<li>object  //对象</li>
+<li>string  //字符串</li>
+<li>any  //任何类型  number string  elements  array</li>
+<li>arrayOf  //</li>
+<li>element  //React 元素</li>
+<li>instanceOf </li>
+<li>node </li>
+<li>objectOf </li>
+<li>oneOf </li>
+<li>oneOfType </li>
+<li>shape    </li>
+</ul>
+<p>3、package.json  name 定义 必须是以下三个组下</p>
+<ul>
+<li>@ht, </li>
+<li>@httest, </li>
+<li>@person</li>
+</ul>
+<p>举例：定义userInfo的组件</p>
+<pre>{
+   'name' : '@ht/userInfo'
+    ...
+ }</pre> 
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/blog/tags/api-规范/">api 规范</a>
     </span>
     
 
@@ -998,84 +1099,11 @@
 
 
 
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/blog/2012/05/14/regular/"><span>正则表达式常用查询</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/blog/2012/05/14/regular/" rel="bookmark">
-        <time class="entry-date published" datetime="2012-05-14T13:38:25.000Z">
-          2012-05-14
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>###元字符</p>
-<ul>
-<li>.*表示任意数量的不包含换行的字符</li>
-<li>. 匹配除换行符以外的任意字符</li>
-<li>\w    匹配字母或数字或下划线或汉字 (不包含标点符号等特殊符号)</li>
-<li>\s    匹配任意的空白符</li>
-<li>\d    匹配数字</li>
-<li>\b    匹配单词的开始或结束  和 ^有些类似</li>
-<li>^ $ 匹配开始和结束</li>
-<li>(|)或</li>
-</ul>
-<p>###重复</p>
-<ul>
-<li>*重复零次或更多次</li>
-<li><ul>
-<li>重复一次或更多次</li>
-</ul>
-</li>
-<li>?    重复零次或一次</li>
-<li>{n}    重复n次</li>
-<li>{n,}    重复n次或更多次</li>
-<li>{n,m}    重复n到m次</li>
-</ul>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/blog/tags/正则/">正则</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
 
 <nav class="pagination">
   
+  
+  <a href="/blog/page/2/" class="pagination-next">下一页</a>
   
 </nav>
     </main>
@@ -1086,7 +1114,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 ibeeger
+    &copy; 2018 ibeeger
     
   </p>
 </footer>
