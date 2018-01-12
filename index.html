@@ -59,6 +59,100 @@
 
   
     
+    <h3 class="article-title"><a href="/blog/2018/01/04/api/"><span></span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2018/01/04/api/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-01-04T05:59:22.000Z">
+          2018-01-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>前后端约定</p>
+<p>###和服务端相关：<br>1、字段、含义统一 （字典建立起来，先查字典）=== （系统内统一）</p>
+<p> 举例：  </p>
+<blockquote>
+<p>userId: 用户id<br>workId: 作业id<br>workName: 作业名称<br>exerciseId: </p>
+</blockquote>
+<p>2、路由（params, query可以利用起来）        </p>
+<ul>
+<li>params</li>
+<li>query</li>
+</ul>
+<p>3、数据传输（空值字段）            </p>
+<ul>
+<li>方案1、不参与交互传输  </li>
+<li>方案2、参与交互传输、需要定义不同类型的 default  value 的方案 ===（确定方案） </li>
+</ul>
+<p>4、code值定义  1、用户提示 2、排插问题<br>    对前端来说区分出来异常和空就可以</p>
+<p>5、数据中只包含用到的字段。(轻|重)</p>
+<p>###和前端相关：</p>
+<p>1、先定义组件 然后安装到项目使用</p>
+<p>2、组件 props 类型要声明</p>
+<ul>
+<li>array  React.PropTypes.array  //数组</li>
+<li>bool  React.PropTypes.bool.isRequired //布尔值 而且是必须的</li>
+<li>func  React.PropTypes.func //函数</li>
+<li>number  //数字</li>
+<li>object  //对象</li>
+<li>string  //字符串</li>
+<li>any  //任何类型  number string  elements  array</li>
+<li>arrayOf  //</li>
+<li>element  //React 元素</li>
+<li>instanceOf </li>
+<li>node </li>
+<li>objectOf </li>
+<li>oneOf </li>
+<li>oneOfType </li>
+<li>shape    </li>
+</ul>
+<p>3、package.json  name 定义 必须是以下三个组下</p>
+<ul>
+<li>@ht, </li>
+<li>@httest, </li>
+<li>@person</li>
+</ul>
+<p>举例：定义userInfo的组件</p>
+<pre>{
+   'name' : '@ht/userInfo'
+    ...
+ }</pre> 
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/blog/2017/12/27/copycontent/"><span>【linux】复制文本命令</span></a></h3>
     
   
@@ -263,107 +357,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/blog/tags/node-redis/">node redis</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/blog/2016/06/27/api/"><span>【约定规范】前后端约定规范</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/blog/2016/06/27/api/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-06-27T04:49:17.000Z">
-          2016-06-27
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>前后端约定</p>
-<p>###和服务端相关：<br>1、字段、含义统一 （字典建立起来，先查字典）</p>
-<p> 举例：  </p>
-<blockquote>
-<p>userId: 用户id<br>workId: 作业id<br>workName: 作业名称<br>exerciseId: </p>
-</blockquote>
-<p>2、路由（params, query可以利用起来）        </p>
-<ul>
-<li>params</li>
-<li>query</li>
-</ul>
-<p>3、数据传输（空值字段）            </p>
-<ul>
-<li>方案1、不参与交互传输</li>
-<li>方案2、参与交互传输、需要定义不同类型的 default  value 的方案</li>
-</ul>
-<p>4、code值定义</p>
-<p>5、数据中只包含用到的字段。()</p>
-<p>###和前端相关：</p>
-<p>1、先定义组件 然后安装到项目使用</p>
-<p>2、组件 props 类型要声明</p>
-<ul>
-<li>array  React.PropTypes.array  //数组</li>
-<li>bool  React.PropTypes.bool.isRequired //布尔值 而且是必须的</li>
-<li>func  React.PropTypes.func //函数</li>
-<li>number  //数字</li>
-<li>object  //对象</li>
-<li>string  //字符串</li>
-<li>any  //任何类型  number string  elements  array</li>
-<li>arrayOf  //</li>
-<li>element  //React 元素</li>
-<li>instanceOf </li>
-<li>node </li>
-<li>objectOf </li>
-<li>oneOf </li>
-<li>oneOfType </li>
-<li>shape    </li>
-</ul>
-<p>3、package.json  name 定义 必须是以下三个组下</p>
-<ul>
-<li>@ht, </li>
-<li>@httest, </li>
-<li>@person</li>
-</ul>
-<p>举例：定义userInfo的组件</p>
-<pre>{
-   'name' : '@ht/userInfo'
-    ...
- }</pre> 
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/blog/tags/api-规范/">api 规范</a>
     </span>
     
 
@@ -767,6 +760,107 @@
 
   
     
+    <h3 class="article-title"><a href="/blog/2015/04/12/css-gpu/"><span>CSS开启硬件加速来提高网站性能</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2015/04/12/css-gpu/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-04-12T13:05:25.000Z">
+          2015-04-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>CSS animations, transforms 以及 transitions 不会自动开启GPU加速，而是由浏览器的缓慢的软件渲染引擎来执行。那我们怎样才可以切换到GPU模式呢，很多浏览器提供了某些触发的CSS规则。</p>
+<p>现在，像Chrome, FireFox, Safari, IE9+和最新版本的Opera都支持硬件加速，当它们检测到页面中某个DOM元素应用了某些CSS规则时就会开启，最显著的特征的元素的3D变换。</p>
+<pre>
+.cube {
+   -webkit-transform: translate3d(250px,250px,250px)
+   rotate3d(250px,250px,250px,-120deg)
+   scale3d(0.5, 0.5, 0.5);
+}
+</pre>
+
+<p>可是在一些情况下，我们并不需要对元素应用3D变换的效果，那怎么办呢？这时候我们可以使用个小技巧“欺骗”浏览器来开启硬件加速。</p>
+<p>虽然我们可能不想对元素应用3D变换，可我们一样可以开启3D引擎。例如我们可以用transform: translateZ(0); 来开启硬件加速 。</p>
+<pre>
+.cube {
+   -webkit-transform: translateZ(0);
+   -moz-transform: translateZ(0);
+   -ms-transform: translateZ(0);
+   -o-transform: translateZ(0);
+   transform: translateZ(0);
+   /* Other transform properties here */
+}
+</pre>
+
+<p>在 Chrome and Safari中，当我们使用CSS transforms 或者 animations时可能会有页面闪烁的效果，下面的代码可以修复此情况：</p>
+<pre>
+.cube {
+   -webkit-backface-visibility: hidden;
+   -moz-backface-visibility: hidden;
+   -ms-backface-visibility: hidden;
+   backface-visibility: hidden;
+
+   -webkit-perspective: 1000;
+   -moz-perspective: 1000;
+   -ms-perspective: 1000;
+   perspective: 1000;
+   /* Other transform properties here */
+}
+</pre>
+
+
+<p>在webkit内核的浏览器中，另一个行之有效的方法是</p>
+<pre>
+.cube {
+   -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+  /* Other transform properties here */
+}
+</pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/blog/tags/css-gpu/">css gpu</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/blog/2014/05/11/mongodb/"><span>mongodb</span></a></h3>
     
   
@@ -1020,74 +1114,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/blog/tags/ffmpeg-video/">ffmpeg video</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/blog/2013/06/12/msgpack/"><span>msgpack 实践</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/blog/2013/06/12/msgpack/" rel="bookmark">
-        <time class="entry-date published" datetime="2013-06-12T14:04:43.000Z">
-          2013-06-12
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>没听过的朋友可以自行先谷歌、百度下， </p>
-<p><a href="https://msgpack.org" target="_blank" rel="noopener">https://msgpack.org</a></p>
-<p><img src="http://iassets.oss-cn-beijing.aliyuncs.com/images/20171212.png" alt="msgpack"></p>
-<p>其实这个场景在web上可能用到的不会太多，app的接口场景会比较实际些，具体情况具体分析，<br>总之，这个msgpack相比json能减少体积。</p>
-<p>好了言归正传</p>
-<p>下面的例子基于 </p>
-<ul>
-<li>服务端 msgpack5 : <a href="https://www.npmjs.com/package/msgpack5" target="_blank" rel="noopener">https://www.npmjs.com/package/msgpack5</a></li>
-<li>客户端  <a href="https://github.com/msgpack" target="_blank" rel="noopener">https://github.com/msgpack</a></li>
-</ul>
-<p>服务端代码：</p>
-<blockquote>
-<p> var msgpack = require(“msgpack5”)();<br>//设置类型<br> res.set(“Content-Type”, “application/msgpack”);<br>//数据格式化<br>var _data = msgpack.encode({<br>     a:1,<br>     b:2,<br>     c:3<br>});<br>res.send(_data);</p>
-</blockquote>
-<p>客户端代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var oReq = new XMLHttpRequest();	</span><br><span class="line">    oReq.open(&quot;POST&quot;, &quot;http://localhost:9090&quot;, true);    </span><br><span class="line">    oReq.responseType = &quot;arraybuffer&quot;;    </span><br><span class="line">var msg = msgpack5();    </span><br><span class="line">    oReq.onload = function (oEvent) &#123;    </span><br><span class="line">var arrayBuffer = oReq.response;     </span><br><span class="line">	if (arrayBuffer) &#123;    </span><br><span class="line">		var byteArray = new Uint8Array(arrayBuffer);    </span><br><span class="line">		var s  = msg.decode(byteArray);    </span><br><span class="line"> 		   	console.log(s);    </span><br><span class="line"> 		&#125;    </span><br><span class="line"> 	&#125;;   </span><br><span class="line">var data =  a.encode([&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;]);   </span><br><span class="line">	oReq.send(data);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/blog/tags/msgpack/">msgpack</a>
     </span>
     
 
