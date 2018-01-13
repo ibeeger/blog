@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DNS 预读取 | 风不二 | 会工作&amp;爱生活</title>
+
+  
+  <meta name="author" content="ibeeger">
+  
+
+  
+  <meta name="description" content="前些日子，对用户端的老师判题图片加了埋点时间统计，同时也统计了网站服务器在全国不同节点的速度情况，不同地方确实存在了一些差距，找了一些相关资料，发现了dns预读取方案。
+X-DNS-Prefetch-Control 头控制着浏览器的 DNS 预读取功能。 DNS 预读取是一项使浏览器主动去执行域名解">
+  
+
+  
+  
+  <meta name="keywords" content="dns prefetch">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="DNS 预读取"/>
+
+  <meta property="og:site_name" content="风不二"/>
+
+  
+  <meta property="og:image" content="/blog/favicon.ico"/>
+  
+
+  <link href="/blog/favicon.ico" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="风不二" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/blog/">风不二</a>
+    </h1>
+    <p class="site-description">会工作&amp;爱生活</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/blog/">Home</a></li>
+      
+        <li><a href="/blog/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>DNS 预读取</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2016/04/13/dns-prefetch/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-04-13T14:07:07.000Z">
+          2016-04-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>前些日子，对用户端的老师判题图片加了埋点时间统计，同时也统计了网站服务器在全国不同节点的速度情况，不同地方确实存在了一些差距，找了一些相关资料，发现了dns预读取方案。</p>
+<p>X-DNS-Prefetch-Control 头控制着浏览器的 DNS 预读取功能。 DNS 预读取是一项使浏览器主动去执行域名解析的功能，其范围包括文档的所有链接，无论是图片的，CSS 的，还是 JavaScript 等其他用户能够点击的 URL。</p>
+<p>因为预读取会在后台执行，所以 DNS 很可能在链接对应的东西出现之前就已经解析完毕。这能够减少用户点击链接时的延迟。</p>
+<p>DNS 请求需要的带宽非常小，但是延迟却有点高，这点在手机网络上特别明显。预读取 DNS 能让延迟明显减少一些，例如用户点击链接时。在某些情况下，延迟能减少一秒钟。 </p>
+<p>在某些浏览器中这个预读取的行为将会与页面实际内容并行发生（而不是串行）。正因如此，某些高延迟的域名的解析过程才不会卡住资源的加载。</p>
+<p>这样可以极大的加速（尤其是移动网络环境下）页面的加载。在某些图片较多的页面中，在发起图片加载请求之前预先把域名解析好将会有至少 5% 的图片加载速度提升。</p>
+<p>###在浏览器中设置预读取配置</p>
+<p>一般来说并不需要去管理预读取，但是可能会有用户希望关闭预读取功能。这时只需要设置 network.dns.disablePrefetch preference 值为 true 就可以了。</p>
+<p>另外，默认情况下，通过 HTTPS 加载的页面上内嵌链接的域名并不会执行预加载。在 Firefox 浏览器中，可以通过设置 network.dns.disablePrefetchFromHTTPS 值为 false 来改变这一默认行为。</p>
+<p>###打开和关闭 DNS 预读取<br>你可以通过在服务器端发送 X-DNS-Prefetch-Control 报头，或是在文档中使用值为 http-equiv 的 <meta> 标签：</p>
+<blockquote>
+<p>\<meta http-equiv="x-dns-prefetch-control" content="off" \=""></p>
+</blockquote>
+<p>您可以通过将 content 的参数设置为“on”来改变设置。</p>
+<p>###强制查询特定主机名<br>你可以通过使用 rel 属性值为 link type 中的 dns-prefetch 的 <link> 标签来对特定域名进行预读取：</p>
+<blockquote>
+<p>\<link rel="dns-prefetch" href="http://www.spreadfirefox.com /" \=""></p>
+</blockquote>
+<p>在这个例子中，Firefox将预解析域名”www.spreadfirefox.com”。</p>
+<p>而且，<link> 元素也可以使用不完整的 URL 的主机名来标记预解析，但这些主机名前必需要有双斜线：</p>
+<blockquote>
+<p>\<link rel="dns-prefetch" href="//www.spreadfirefox.com"></p>
+</blockquote>
+<p>强制对域名进行预读取在有的情况下很有用, 比如, 在网站的主页上，强制在整个网站上频繁引用的域名的预解析，即使它们不在主页本身上使用。即使主页的性能可能不受影响，这将提<br>高整体站点性能。</p>
+<p>小提示：</p>
+<p>浏览器的DNS缓存<br>浏览器为了提高响应时间，也会缓存DNS记录。</p>
+<p>这篇文章 列出了一些浏览器的DNS缓存时间</p>
+<p>浏览器DNS缓存时间跟TTL无关，每种浏览器都有一个固定值</p>
+<p>####chrome<br>为了加快访问速度，Google Chrome浏览器采用了预提DNS记录，在本地建立DNS缓存的方法，加快网站的连接速度。</p>
+<p>chrome://net-internals/#dns 这里可以看各域名的DNS 缓存时间。chrome对每个域名会默认缓存60s。</p>
+<p>####IE<br>IE将DNS缓存30min。见这里</p>
+<p>####firefox<br>Firefox有dns缓存功能，但是默认缓存时间只有1分钟，可以通过修改该默认值加快DNS解析速度，方法如下：</p>
+<p>打开一个新的窗口，地址栏输 入 about:config，回车，进入设置界面。然后搜索 network.dnsCacheExpiration ，把原来的60改成 6000（表示缓存6000秒），再搜索network.dnsCacheEntries 把默认的20改成1000（表示缓存1000条）。如果没 有上面两个项目，新建它们即可，</p>
+<p>新建条目类型为整数型。 当然也可以按照需要设置成其它的值。</p>
+<p>####safari<br>约为10s</p>
+<p>原文地址：<a href="https://developer.mozilla.org/zh-CN/docs/Controlling_DNS_prefetching" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Controlling_DNS_prefetching</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/blog/tags/dns-prefetch/">dns prefetch</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 ibeeger
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
