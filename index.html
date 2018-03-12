@@ -372,6 +372,67 @@
 
   
     
+    <h3 class="article-title"><a href="/blog/2016/05/22/mobile-ios-audio/"><span>mobile_ios_audio 自动播放的问题</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2016/05/22/mobile-ios-audio/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-22T12:18:59.000Z">
+          2016-05-22
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>前几天整理的时候发现，原来的audio都不自动播放了，<br>阅读相关资料，才发现 </p>
+<pre><code>苹果为了用户着想，禁止了Autoplay和JS &quot;onload&quot; 加载播放
+</code></pre><p>也就是说，页面进来之后，不会自动加载音频文件，也不会自动播放，需要用户主动触发一下才可以正常加载，播放。</p>
+<p>总结一下吧：</p>
+<p>移动端Audio Autoplay</p>
+<ul>
+<li>苹果认为这是种不友好的行为</li>
+</ul>
+<p>细想一下 国内流量真的很贵的哟，不知道是不是因为这一点呢。 </p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/blog/tags/ios-audio-html/">ios audio html</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/blog/2016/04/13/dns-prefetch/"><span>DNS 预读取</span></a></h3>
     
   
@@ -934,147 +995,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/blog/tags/css-gpu/">css gpu</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/blog/2014/05/11/mongodb/"><span>mongodb</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/blog/2014/05/11/mongodb/" rel="bookmark">
-        <time class="entry-date published" datetime="2014-05-11T14:25:59.000Z">
-          2014-05-11
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>###条件查询 $lt, $gt, $lte, $gte, $ne;</p>
-<p>&lt;, &lt;=, &gt;, &gt;=  !=这个操作符就不用多解释了，最常用也是最简单的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(&#123; &quot;field&quot; : &#123; $gt: value &#125; &#125; ); // 大于: field &gt; value</span><br><span class="line">db.collection.find(&#123; &quot;field&quot; : &#123; $lt: value &#125; &#125; ); // 小于: field &lt; value</span><br><span class="line">db.collection.find(&#123; &quot;field&quot; : &#123; $gte: value &#125; &#125; ); // 大于等于: field &gt;= value</span><br><span class="line">db.collection.find(&#123; &quot;field&quot; : &#123; $lte: value &#125; &#125; ); // 小于等于: field &lt;= value</span><br></pre></td></tr></table></figure>
-<p>如果要同时满足多个条件，可以这样做</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(&#123; &quot;field&quot; : &#123; $gt: value1, $lt: value2 &#125; &#125; ); // value1 &lt; field &lt; value2</span><br></pre></td></tr></table></figure>
-<p>注意：以后练习中请先创建数据，进行下面查询练习。</p>
-<p>首先我们先创建几条数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.insert([&#123;name:&quot;Tom&quot;,age:20,sex:&quot;m&quot;&#125;,&#123;name:&quot;Lily&quot;,age:40,sex:&quot;f&quot;&#125;,&#123;name:&quot;Suby&quot;,age:18&#125;]);</span><br></pre></td></tr></table></figure></p>
-<p>请查询age大于19并且小于45的记录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123; age : &#123; $gt: 19, $lt: 45&#125; &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>查询x 的值不等于3 的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.things.find( &#123; x : &#123; $ne : 3 &#125; &#125; );</span><br></pre></td></tr></table></figure>
-<p>举例如下:</p>
-<p>C1 表的数据如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.c1.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af85afa87dc1bed94330&quot;), &quot;age&quot; : 7, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af89afa87dc1bed94331&quot;), &quot;age&quot; : 8, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af8cafa87dc1bed94332&quot;), &quot;age&quot; : 6, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>查询age 的值不等于7 的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.c1.find( &#123; age : &#123; $ne : 7 &#125; &#125; );</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af89afa87dc1bed94331&quot;), &quot;age&quot; : 8, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af8cafa87dc1bed94332&quot;), &quot;age&quot; : 6, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出只显示出了age 不等于7 的数据，其它不符合规则的数据并没有显示出来</p>
-<p>在users文档中查询”age”不等于20的记录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;age:&#123;$ne:20&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="in-nin-all包含查询"><a href="#in-nin-all包含查询" class="headerlink" title="$in, $nin ,$all包含查询"></a>$in, $nin ,$all包含查询</h3><ul>
-<li>$in</li>
-</ul>
-<p>与sql 标准语法的用途是一样的，即要查询的是一系列枚举值的范围内</p>
-<p>查询x 的值在2,4,6 范围内的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.things.find(&#123;x:&#123;$in: [2,4,6]&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<p>举例如下:</p>
-<p>C1 表的数据如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.c1.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af85afa87dc1bed94330&quot;), &quot;age&quot; : 7, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af89afa87dc1bed94331&quot;), &quot;age&quot; : 8, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af8cafa87dc1bed94332&quot;), &quot;age&quot; : 6, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>查询age 的值在7,8 范围内的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.c1.find(&#123;age:&#123;$in: [7,8]&#125;&#125;);</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af85afa87dc1bed94330&quot;), &quot;age&quot; : 7, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af89afa87dc1bed94331&quot;), &quot;age&quot; : 8, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出只显示出了age 等于7 或8 的数据，其它不符合规则的数据并没有显示出来</p>
-<p>“$in”非常灵活，可以指定不同类型的条件和值。</p>
-<p>在users文档查询”age”等于11或26的记录。<br>db.users.find({age:{$in:[11,26]}});</p>
-<ul>
-<li>$nin </li>
-</ul>
-<p>与sql 标准语法的用途是一样的，即要查询的数据在一系列枚举值的范围外</p>
-<p>查询x 的值在2,4,6 范围外的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.things.find(&#123;x:&#123;$nin: [2,4,6]&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<p>举例如下:</p>
-<p>C1 表的数据如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> db.c1.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af85afa87dc1bed94330&quot;), &quot;age&quot; : 7, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af89afa87dc1bed94331&quot;), &quot;age&quot; : 8, &quot;length_1&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af8cafa87dc1bed94332&quot;), &quot;age&quot; : 6, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>查询age 的值在7,8 范围外的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.c1.find(&#123;age:&#123;$nin: [7,8]&#125;&#125;);</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af8cafa87dc1bed94332&quot;), &quot;age&quot; : 6, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出只显示出了age 不等于7 或8 的数据，其它不符合规则的数据并没有显示出来</p>
-<p>在users文档中查询”age”不等于18或者20的记录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;age:&#123;$nin:[18,20]&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>$all</li>
-</ul>
-<p>这个操作符跟SQL 语法的in 类似，但不同的是, in 只需满足( )内的某一个值即可, 而$all 必须满足[ ]内的所有值，例如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;age : &#123;$all : [6, 8]&#125;&#125;);</span><br><span class="line">可以查询出 &#123;name: &apos;David&apos;, age: 26, age: [ 6, 8, 9 ] &#125;</span><br><span class="line">但查询不出 &#123;name: &apos;David&apos;, age: 26, age: [ 6, 7, 9 ] &#125;</span><br></pre></td></tr></table></figure>
-<p>首先先创建含有数组的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.insert(&#123;&quot;name&quot;:&quot;David&quot;,age:26,course:[&quot;js&quot;,&quot;Node&quot;,&quot;Mongodb&quot;]&#125;,&#123;&quot;name&quot;:&quot;Tom&quot;,age:26,course:[&quot;js&quot;,&quot;Node&quot;,&quot;Mongoose&quot;]&#125;)</span><br></pre></td></tr></table></figure>
-<p>在users文档中课程既有”js”,又有”Mongodb”的文档。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;course:&#123;$all:[&quot;js&quot;,&quot;Mongodb&quot;]&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="exists判断字段是否存在"><a href="#exists判断字段是否存在" class="headerlink" title="$exists判断字段是否存在"></a>$exists判断字段是否存在</h3><p>查询所有存在age 字段的记录</p>
-<p>db.users.find({age: {$exists: true}});</p>
-<p>查询所有不存在name 字段的记录</p>
-<p>db.users.find({name: {$exists: false}});</p>
-<p>举例如下:</p>
-<p>C1 表的数据如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4a773afa87dc1bed9432d&quot;), &quot;age&quot; : 20, &quot;length&quot; : 30 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4a7e1afa87dc1bed9432e&quot;), &quot;age_1&quot; : 20, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>查询存在字段age 的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.c1.find(&#123;age:&#123;$exists:true&#125;&#125;);</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4a773afa87dc1bed9432d&quot;), &quot;age&quot; : 20, &quot;length&quot; : 30 &#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出只显示出了有age 字段的数据，age_1 的数据并没有显示出来</p>
-<p>在users文档中”sex”字段存在的记录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;sex: &#123;$exists: true&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="Null值处理"><a href="#Null值处理" class="headerlink" title="Null值处理"></a>Null值处理</h3><p>Null 值的处理稍微有一点奇怪，具体看下面的样例数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fc34bb81d8a39f01cc17ef4&quot;), &quot;name&quot; : &quot;Lily&quot;, &quot;age&quot; : null &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fc34be01d8a39f01cc17ef5&quot;), &quot;name&quot; : &quot;Jacky&quot;, &quot;age&quot; : 23 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fc34c1e1d8a39f01cc17ef6&quot;), &quot;name&quot; : &quot;Tom&quot;, &quot;addr&quot; : 23 &#125;</span><br></pre></td></tr></table></figure>
-<p>其中”Lily”的age 字段为空，Tom 没有age 字段，我们想找到age 为空的行，具体如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.c2.find(&#123;age:null&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fc34bb81d8a39f01cc17ef4&quot;), &quot;name&quot; : &quot;Lily&quot;, &quot;age&quot; : null &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fc34c1e1d8a39f01cc17ef6&quot;), &quot;name&quot; : &quot;Tom&quot;, &quot;addr&quot; : 23 &#125;</span><br></pre></td></tr></table></figure>
-<p>奇怪的是我们以为只能找到”Lily”，但”Tom”也被找出来了，因为”null”不仅会匹配某个键的值为null的文档，而且还会匹配不包含这个键的文档 。那么怎么样才能只找到”Lily”呢?我们用exists 来限制一下即可.</p>
-<p>在users文档找出”sex”值为”null”并且字段存在的记录。</p>
-<figure class="highlight plain"><figcaption><span>"$exists":true&#125;&#125;);```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### $mod取模运算</span><br><span class="line">查询age 取模10 等于0 的数据</span><br></pre></td></tr></table></figure>
-<p>db.student.find( { age: { $mod : [ 10 , 1 ] } } )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">举例如下:</span><br><span class="line"></span><br><span class="line">C1 表的数据如下:</span><br></pre></td></tr></table></figure></p>
-<p>db.c1.find()<br>{ “_id” : ObjectId(“4fb4af85afa87dc1bed94330”), “age” : 7, “length_1” : 30 }<br>{ “_id” : ObjectId(“4fb4af89afa87dc1bed94331”), “age” : 8, “length_1” : 30 }<br>{ “_id” : ObjectId(“4fb4af8cafa87dc1bed94332”), “age” : 6, “length_1” : 30 }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查询age 取模6 等于1 的数据</span><br><span class="line"></span><br><span class="line">```db.c1.find(&#123;age: &#123;$mod : [ 6 , 1 ] &#125; &#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4fb4af85afa87dc1bed94330&quot;), &quot;age&quot; : 7, &quot;length_1&quot; : 30 &#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以看出只显示出了age 取模6 等于1 的数据，其它不符合规则的数据并没有显示出来</p>
-<p>在users文档中查询”age”取模5 等于1的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;age:&#123;$mod:[5,1]&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="size数组元素个数"><a href="#size数组元素个数" class="headerlink" title="$size数组元素个数"></a>$size数组元素个数</h3><p>对于{name: ‘David’, age: 26, favorite_number: [ 6, 7, 9 ] }记录</p>
-<p>匹配db.users.find({favorite_number: {$size: 3}});</p>
-<p>不匹配db.users.find({favorite_number: {$size: 2}});</p>
-<p>“$size”对于查询数组来说也是非常有用的，顾名思义，可以用它查询特定长度的数组。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;favorite_number: &#123;$size: 3&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>得到一个长度范围内的文档是一种常见的查询。”$size”并不能与其他查询条件（比如”$gt”）组合使用，但是这种查询可以通过在文档中添加一个”size”键的方式来实现。这样每一次向指定数组添加元素时，同时增加”size”的值。比如，原来这样的更新：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.update(criteria,&#123;&quot;$push&quot;:&#123;&quot;favorite_number&quot;:&quot;1&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>就要变成下面这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.update(criteria, &#123;&quot;$push&quot;:&#123;&quot;favorite_number&quot;:&quot;1&quot;&#125;,&quot;$inc&quot;:&#123;&quot;$size&quot;:1&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>自增操作的速度非常快，所以对性能的影响微乎其微。这样存储文档后，就可以像下面这样查询了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;&quot;$size&quot;:&#123;&quot;$gt&quot;:3&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>很遗憾，这种技巧并不能与”$addToSet”操作符同时使用。</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/blog/tags/mongodb/">mongodb</a>
     </span>
     
 
