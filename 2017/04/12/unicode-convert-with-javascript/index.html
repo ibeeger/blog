@@ -11,7 +11,7 @@
 
   
   <meta name="description" content="大众使用的方式
-function encodeunicode(data){   if(data == ‘’) return ‘请输入汉字’;   var str =’’;   for(var i=0; i\&amp;lt;data.length;i++)   {      str+=”\\u”+parseI">
+function encodeunicode(data){   if(data == ‘’) return ‘请输入汉字’;   var str =’’;   for(var i=0; i&amp;lt;data.length;i++)   {      str+=”\\u”+parseIn">
   
 
   
@@ -51,9 +51,9 @@ function encodeunicode(data){   if(data == ‘’) return ‘请输入汉字’;
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="/blog/">主页</a></li>
+        <li><a href="/blog/">Home</a></li>
       
-        <li><a href="/blog/archives">归档</a></li>
+        <li><a href="/blog/archives">Archives</a></li>
       
     </ul>
   </nav>
@@ -85,8 +85,8 @@ function encodeunicode(data){   if(data == ‘’) return ‘请输入汉字’;
     <div class="entry">
       
         <p>大众使用的方式</p>
-<p><pre><br>function encodeunicode(data)<br>{<br>   if(data == ‘’) return ‘请输入汉字’;<br>   var str =’’;<br>   for(var i=0; i\&lt;data.length;i++)<br>   {<br>      str+=”\\u”+parseInt(data[i].charCodeAt(0),10).toString(16);<br>   }<br>   return str;<br>}</pre></p>
-<p>function decodeunicode(data)<br>{<br>    if(data == ‘’) return ‘请输入十六进制unicode’;<br>    data = data.split(“\u”);<br>    var str =’’;<br>    for(var i=0;i\<data.length;i++) {="" str+="String.fromCharCode(parseInt(data[i],16).toString(10));" }="" return="" str;="" <="" pre=""><br>切记</data.length;i++)></p>
+<p><pre><br>function encodeunicode(data)<br>{<br>   if(data == ‘’) return ‘请输入汉字’;<br>   var str =’’;<br>   for(var i=0; i&lt;data.length;i++)<br>   {<br>      str+=”\\u”+parseInt(data[i].charCodeAt(0),10).toString(16);<br>   }<br>   return str;<br>}</pre></p>
+<p>function decodeunicode(data)<br>{<br>    if(data == ‘’) return ‘请输入十六进制unicode’;<br>    data = data.split(“\u”);<br>    var str =’’;<br>    for(var i=0;i<data.length;i++) {="" str+="String.fromCharCode(parseInt(data[i],16).toString(10));" }="" return="" str;="" <="" pre=""><br>切记</data.length;i++)></p>
 
       
     </div>
